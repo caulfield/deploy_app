@@ -1,7 +1,7 @@
 require 'sinatra/base'
 
 class DeployApp < Sinatra::Base
-  get '/' do
+  post '/' do
     `#{ENV['COMMAND']}` if ENV['COMMAND']
   end
 end
