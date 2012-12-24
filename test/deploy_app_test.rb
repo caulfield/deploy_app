@@ -12,13 +12,13 @@ class DeployAppTest < MiniTest::Unit::TestCase
   end
 
   def test_success_response
-    get '/'
+    post '/'
     assert_equal 200, last_response.status
   end
 
   def test_returns_command_output
     ENV['COMMAND'] = 'echo "foobar"'
-    get '/'
+    post '/'
     assert_equal 200, last_response.status
     assert_equal 'foobar', last_response.body.strip
   end
